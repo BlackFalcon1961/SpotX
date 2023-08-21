@@ -267,7 +267,7 @@ $country = [System.Globalization.RegionInfo]::CurrentRegion.EnglishName
 function CallLang($clg) {
 
     [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-    $urlLang = "https://raw.githubusercontent.com/amd64fox/SpotX/main/scripts/installer-lang/$clg.ps1"
+    $urlLang = "https://raw.githubusercontent.com/BlackFalcon1961/SpotX/main/scripts/installer-lang/$clg.ps1"
     $ProgressPreference = 'SilentlyContinue'
     
     try {
@@ -289,7 +289,7 @@ $lang = CallLang -clg $langCode
 # Set variable 'ru'.
 if ($langCode -eq 'ru') { 
     $ru = $true
-    $urlru = "https://raw.githubusercontent.com/amd64fox/SpotX/main/patches/Augmented%20translation/ru.json"
+    $urlru = "https://raw.githubusercontent.com/BlackFalcon1961/SpotX/main/patches/Augmented%20translation/ru.json"
     $webjsonru = (Invoke-WebRequest -useb -Uri $urlru).Content | ConvertFrom-Json
 }
 
@@ -434,7 +434,7 @@ function downloadSp() {
     
     try { 
         if ($curl_check) {
-            $stcode = curl.exe -s -w "%{http_code}"  $web_Url --retry 2 --ssl-no-revoke
+            $stcode = curl.exe -s -w "%{http_code}" -o /dev/null $web_Url --retry 2 --ssl-no-revoke
             if ($stcode -ne "200") {
                 Write-Host "Curl error code: $stcode"; throw
             }
@@ -462,7 +462,7 @@ function downloadSp() {
         try { 
 
             if ($curl_check) {
-                $stcode = curl.exe -s -w "%{http_code}" $web_Url --retry 2 --ssl-no-revoke
+                $stcode = curl.exe -s -w "%{http_code}" -o /dev/null $web_Url --retry 2 --ssl-no-revoke
                 if ($stcode -ne "200") {
                     Write-Host "Curl error code: $stcode"; throw
                 }
@@ -870,7 +870,7 @@ if ($ch -eq 'n') {
 
 $ch = $null
 
-$url = "https://raw.githubusercontent.com/amd64fox/SpotX/main/patches/patches.json"
+$url = "https://raw.githubusercontent.com/BlackFalcon1961/SpotX/main/patches/patches.json"
 $retries = 0
 
 while ($retries -lt 3) {
