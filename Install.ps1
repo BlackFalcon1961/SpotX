@@ -425,7 +425,7 @@ function downloadSp() {
 
     Import-Module BitsTransfer
         
-    $web_Url = "https://download.scdn.co/Spotify$onlineFullSetup.exe"
+    $web_Url = "https://upgrade.scdn.co/upgrade/client/win32-x86/spotify_installer$online.exe"
     $local_Url = "$PWD\SpotifySetup.exe" 
     $web_name_file = "SpotifySetup.exe"
 
